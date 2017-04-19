@@ -63,6 +63,15 @@
 
         <li>
 
+            <a class="apidocElementLiA" href="#apidoc.element.grunt-contrib-livereload.grunt-contrib-livereload">
+            function <span class="apidocSignatureSpan"></span>grunt-contrib-livereload
+            <span class="apidocSignatureSpan">(grunt)</span>
+            </a>
+
+        </li>
+
+        <li>
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">grunt-contrib-livereload.</span>utils</span>
 
         </li>
@@ -95,6 +104,62 @@
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.grunt-contrib-livereload" id="apidoc.module.grunt-contrib-livereload">module grunt-contrib-livereload</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.grunt-contrib-livereload.grunt-contrib-livereload" id="apidoc.element.grunt-contrib-livereload.grunt-contrib-livereload">
+        function <span class="apidocSignatureSpan"></span>grunt-contrib-livereload
+        <span class="apidocSignatureSpan">(grunt)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">grunt-contrib-livereload = function (grunt) {
+  // Project configuration.
+  grunt.initConfig({
+    jshint: {
+      all: [
+        &#x27;Gruntfile.js&#x27;,
+        &#x27;tasks/*.js&#x27;,
+        &#x27;test/*.js&#x27;
+      ],
+      options: {
+        jshintrc: &#x27;.jshintrc&#x27;
+      }
+    },
+
+    // Unit tests.
+    simplemocha: {
+      options: {
+        globals: [&#x27;should&#x27;],
+        timeout: 3000,
+        ignoreLeaks: false,
+        ui: &#x27;bdd&#x27;,
+        reporter: &#x27;spec&#x27;
+      },
+
+      all: { src: &#x27;test/**/*.js&#x27; }
+    }
+  });
+
+  // Actually load this plugin&#x27;s task(s).
+  grunt.loadTasks(&#x27;tasks&#x27;);
+
+  // These plugins provide necessary tasks.
+  grunt.loadNpmTasks(&#x27;grunt-contrib-clean&#x27;);
+  grunt.loadNpmTasks(&#x27;grunt-contrib-jshint&#x27;);
+  grunt.loadNpmTasks(&#x27;grunt-simple-mocha&#x27;);
+  grunt.loadNpmTasks(&#x27;grunt-contrib-internal&#x27;);
+
+  // Whenever the &#x22;test&#x22; task is run, first clean the &#x22;tmp&#x22; dir, then run this
+  // plugin&#x27;s task(s), then test the result.
+  grunt.registerTask(&#x27;test&#x27;, [&#x27;simplemocha&#x27;]);
+
+  // By default, lint and run all tests.
+  grunt.registerTask(&#x27;default&#x27;, [&#x27;test&#x27;, &#x27;build-contrib&#x27;]);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
 
 
 
